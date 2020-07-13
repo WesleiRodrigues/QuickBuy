@@ -26,14 +26,10 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            if (!ItensPedido.Any())
-            {
-                AdicionarCritica("Crítica - Pedido não pode ficar sem item de pedido");
-            }
-            if (string.IsNullOrEmpty(CEP))
-            {
-                AdicionarCritica("Crítica - CEP deve estar preenchido");
-            }
+            if (!ItensPedido.Any()) AdicionarCritica("Crítica - Pedido não pode ficar sem item de pedido");
+            if (string.IsNullOrEmpty(CEP)) AdicionarCritica("Crítica - CEP deve estar preenchido");
+            if (FormaPagamentoId == 0) AdicionarCritica("Crítica - Nõa foi informado a forma de pagamento");
+
         }
     }
 }
